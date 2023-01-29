@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Drag Race</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" onkeypress="Write(event)" id="writeBox">
+        <img id="player-1" src="./img/shot-1.png" alt="">
+        <span class="p1Name" id="p11Name" style="font-weight: bold; font-size: x-large; color: red;">Player 1</span>
+        <img id="player-2" src="./img/shot-2.png" alt="">
+        <span class="p2Name" id="p22Name" style="font-weight: bold; font-size: x-large; color: blue;">Player 2</span>
+    </div>
+
+    <script>
+        let racer1=-150, racer2=-150;
+        let player1Name=150, player2Name=150;
+        let name1Player = prompt("Тоглогч 1-ийн нэр");
+        let name2Player = prompt("Тоглогч 2-ын нэр");
+        document.getElementById('p11Name').innerHTML = name1Player;
+        document.getElementById('p22Name').innerHTML = name2Player;
+
+        function Write(event){
+                  let right = event.which;
+
+                  if(right==115){
+                        racer1 += 70;
+                        player1Name += 70;
+                        document.getElementById("player-1").style.marginLeft = racer1+'px';
+                        document.getElementById("p11Name").style.marginLeft = player1Name+'px';
+                  }
+                  if(right==107){
+                        racer2 += 70;
+                        player2Name += 70;
+                        document.getElementById("player-2").style.marginLeft = racer2+'px';
+                        document.getElementById("p22Name").style.marginLeft = player2Name+'px';
+                  }
+
+                  
+                  if(racer1 > 1290){
+                        alert("Тоглогч "+name1Player+" уралдаанд түрүүллээ.");
+                  }
+                  if(racer2 > 1290){
+                        alert("Тоглогч "+name2Player+" уралдаанд түрүүллээ.");
+                  }
+            }
+
+
+
+
+    </script>
+</body>
+</html>
